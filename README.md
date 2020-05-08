@@ -1,9 +1,9 @@
-# Interação Humano e Computador - VR e AR
+# IHC -3° semestre B de ADS
 
-Turma: 3° - B ADS
-
-## Integrantes
+## Equipe:
 * Gabriel Mendes
 * Gabriel Borges
 * Isabelle Oliveira
 * Samuel Costa
+
+# 1ª Quinzena de maio
