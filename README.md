@@ -1,4 +1,6 @@
 # IHC -3° semestre B de ADS
+Professor Giuliano Bertoti
+https://codepen.io/isabellefo/pen/pojOwQK?editors=1010
 ## Objetivo geral
 Fazer a montagem de uma peça usando as ferramentas de AR.js em realidade virtual.
 
@@ -17,3 +19,9 @@ A montagem de uma peça genérica (4 cubos) através de um painel de botões.
 * Hangar
 * Peça exemplo e transparente
 * Botão para começar
+
+TODO
+* Print 
+* link do codepen
+* colocar RA
+
