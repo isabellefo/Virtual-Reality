@@ -26,7 +26,7 @@ A montagem de uma peça genérica (4 cubos) através de um painel de botões.
 
 ## 2ª Quinzena de maio
 * RA
-* Função de moviemento
+* Função de movimento
 
 TODO
 * Print 
