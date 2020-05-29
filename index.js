@@ -14,8 +14,6 @@ document.querySelector("#btn1").addEventListener("click", function () {
 });
 
 function move(el,movement){
-  console.log("what?")
-  console.log(el);
   let position = el.getAttribute("position");
   for(let[ cord , value] of Object.entries(position)){
     position[cord] = value + movement[cord];
