@@ -1,6 +1,6 @@
 cont = 1;
-const int horizontal = 0.5;
-const int vertical = 0.1
+const horizontal = 0.5;
+const vertical = 0.1
 document.querySelector("#btn1").addEventListener("click", function () {
 
   var el = document.querySelector("#peça1");
