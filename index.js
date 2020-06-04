@@ -46,4 +46,4 @@ document.querySelector("#leftBtn").addEventListener("click", function(){moveLeft
 document.querySelector("#rightBtn").addEventListener("click", function(){moveRight(el)});
 document.querySelector("#upBtn").addEventListener("click", function(){moveUp(el)});
 document.querySelector("#downBtn").addEventListener("click", function(){moveDown(el)});
-ocument.querySelector("#downText").addEventListener("click", function(){moveDown(el)});
+document.querySelector("#downText").addEventListener("click", function(){moveDown(el)});
