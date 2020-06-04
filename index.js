@@ -1,9 +1,13 @@
 cont = 1;
 const horizontal = 0.5;
-const vertical = 0.1
-document.querySelector("#btn1").addEventListener("click", function () {
+const vertical = 0.1;
+var el = document.querySelector("#peça1");
 
-  var el = document.querySelector("#peça1");
+document.querySelector("#btn1").addEventListener("click", function () {
+  let btns = document.getElementsByClassName("move");
+  for(let item of btns){
+    item.object3D.visible = true;
+  }
   var btn1 = document.querySelector("#btn1");
   var text = document.querySelector("#text");
 
@@ -13,12 +17,33 @@ document.querySelector("#btn1").addEventListener("click", function () {
  
 });
 
-function move(el,movement){
+function move(el,movement) {
   let position = el.getAttribute("position");
   for(let[ cord , value] of Object.entries(position)){
     position[cord] = value + movement[cord];
   }
   
   el.setAttribute("position", position);
-  
 }
+function moveUp(item){
+  move(item, {x:0.0, y:vertical, z:0.0});
+}
+
+function moveDown(item){
+  console.log("sanity check")
+  move(item, {x:0.0, y:-vertical, z:0.0});
+}
+
+function moveLeft(){
+  move(el, {x:-horizontal, y:0.0, z:0.0});
+}
+
+function moveRight(item){
+  move(item, {x:horizontal, y:0.0, z:0.0});
+}
+
+document.querySelector("#leftBtn").addEventListener("click", function(){moveLeft(el)});
+document.querySelector("#rightBtn").addEventListener("click", function(){moveRight(el)});
+document.querySelector("#upBtn").addEventListener("click", function(){moveUp(el)});
+document.querySelector("#downBtn").addEventListener("click", function(){moveDown(el)});
+ocument.querySelector("#downText").addEventListener("click", function(){moveDown(el)});
