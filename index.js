@@ -1,5 +1,5 @@
 cont = 1;
-const horizontal = 0.5;
+const horizontal = 0.25;
 const vertical = 0.1;
 var el = document.querySelector("#peça1");
 
@@ -30,12 +30,11 @@ function moveUp(item){
 }
 
 function moveDown(item){
-  console.log("sanity check")
   move(item, {x:0.0, y:-vertical, z:0.0});
 }
 
-function moveLeft(){
-  move(el, {x:-horizontal, y:0.0, z:0.0});
+function moveLeft(item){
+  move(item, {x:-horizontal, y:0.0, z:0.0});
 }
 
 function moveRight(item){
@@ -43,7 +42,10 @@ function moveRight(item){
 }
 
 document.querySelector("#leftBtn").addEventListener("click", function(){moveLeft(el)});
+document.querySelector("#leftText").addEventListener("click", function(){moveLeft(el)});
 document.querySelector("#rightBtn").addEventListener("click", function(){moveRight(el)});
+document.querySelector("#rightText").addEventListener("click", function(){moveRight(el)});
 document.querySelector("#upBtn").addEventListener("click", function(){moveUp(el)});
+document.querySelector("#upText").addEventListener("click", function(){moveUp(el)});
 document.querySelector("#downBtn").addEventListener("click", function(){moveDown(el)});
 document.querySelector("#downText").addEventListener("click", function(){moveDown(el)});
