@@ -1,22 +1,46 @@
 cont = 1;
-const horizontal = 0.25;
-const vertical = 0.1;
-var el = document.querySelector("#peça1");
+const horizontal = 0.2;
+const vertical = 0.2;
+var elName  = "#peça"
+var el = document.querySelector(elName + cont);
 
-document.querySelector("#btn1").addEventListener("click", function () {
+document.querySelector("#startBtn").addEventListener("click", function(){start()});
+document.querySelector("#startText").addEventListener("click", function(){start()});
+
+function start() {
   let btns = document.getElementsByClassName("move");
   for(let item of btns){
     item.object3D.visible = true;
   }
-  var btn1 = document.querySelector("#btn1");
-  var text = document.querySelector("#text");
+  
+  var btn1 = document.querySelector("#startBtn");
+  var text = document.querySelector("#startText");
 
   el.object3D.visible = true;
   btn1.object3D.visible = false;
   text.object3D.visible = false;
-  panel.visible = true;
- 
-});
+}
+
+function isInPlace(position){
+  let rightPlace = document.getElementById("caixaT-"+ cont).getAttribute("position");
+  console.log(rightPlace);
+  console.log(position);
+  let flag = true ;
+  for( let[cord, value] of Object.entries(position)){
+    let c1 = Math.floor(value / 0.01);
+    let c2 = Math.floor(rightPlace[cord] / 0.01);
+    console.log(`${cord} ${c1} ${c2} ${Math.abs(c1-c2)}`);
+    if(Math.abs(c1-c2) >= 2){
+      flag = false;
+      break;
+    }
+  }
+  if(flag){
+    cont++;
+    el = document.querySelector(elName + cont);
+    el.object3D.visible = true;
+  }
+}
 
 function move(el,movement) {
   let position = el.getAttribute("position");
@@ -25,6 +49,7 @@ function move(el,movement) {
   }
   
   el.setAttribute("position", position);
+  isInPlace(position);
 }
 function moveUp(item){
   move(item, {x:0.0, y:vertical, z:0.0});
