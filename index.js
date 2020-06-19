@@ -22,22 +22,26 @@ function start() {
 }
 
 function isInPlace(position){
+  // posição da peça transparente
   let rightPlace = document.getElementById("caixaT-"+ cont).getAttribute("position");
-  console.log(rightPlace);
-  console.log(position);
-  let flag = true ;
+  // flag para saber se está no lugar
+  let fitted = true;
   for( let[cord, value] of Object.entries(position)){
+    // tranforma a posição em um inteiro
     let c1 = Math.floor(value / 0.01);
     let c2 = Math.floor(rightPlace[cord] / 0.01);
     console.log(`${cord} ${c1} ${c2} ${Math.abs(c1-c2)}`);
+    // verifica se estão no mesmo lugar
     if(Math.abs(c1-c2) >= 2){
-      flag = false;
+      fitted = false;
       break;
     }
   }
-  if(flag){
+  if(fitted){
+    // incrementa cont para pegar a próxima peça
     cont++;
     el = document.querySelector(elName + cont);
+    // exibe a próxima peça
     el.object3D.visible = true;
   }
 }
