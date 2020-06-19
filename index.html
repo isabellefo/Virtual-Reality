@@ -9,8 +9,7 @@
   <body>
  
     <a-scene  cursor="rayOrigin: mouse"  background="color: #7BC8A4">
-      <!-- <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere> -->
+
       <!--Hangar-->
       <a-gltf-model id ="hangar" src="https://raw.githubusercontent.com/KurtRodrigues/Project01/master/modelos%203D%20Porta%20avi%C3%A3o/Hangar.0.9.gltf" shadow="cast: false" position="-2 1 -2.5" rotation="0 0 0" scale="1 1 1"  visible="true"> </a-gltf-model>
       <!--Vigas do Hangar-->
@@ -32,8 +31,8 @@
       <a-box id = "caixaT 4"position="5.8 1.8 -2.5" scale="0.5 0.5 0.3" color="#FFFF00" opacity="0.5"></a-box>
       
       <!-- peças -->
-      <a-box id = "peça1" position="7.3 2.25 -2.5" scale="0.5 0.5 0.3" color="#FF0000" visible="false"></a-box>
-      <a-box id = "peça 2"position="7.3 2.25 -2.5" scale="0.5 0.5 0.3" color="#00FF00" visible="false"></a-box>
+      <a-box id = "peça1" position="7.3 1.8 -2.5" scale="0.5 0.5 0.3" color="#FF0000" visible="false"></a-box>
+      <a-box id = "peça 2"position="7.3 1.8 -2.5" scale="0.5 0.5 0.3" color="#00FF00" visible="false"></a-box>
       <a-box id = "peça 3"position="7.3 1.55 -2.5"scale="0.5 0.5 0.3" color="#0000FF" visible="false"></a-box>
       <a-box id = "peça 4"position="7.3 1.55 -2.5" scale="0.5 0.5 0.3" color="#FFFFFF" visible="false"></a-box>
       
@@ -56,6 +55,19 @@
 
       </div>
       
+      <!-- left -->
+      <a-box class="move" id="leftBtn" position="5.6 1.25 -1.8" scale="0.3 0.3 0.01" color="#FFFFFF" visible="false"></a-box>
+      <a-text class="move" id = "leftText" value="<" position="5.5 1.25 -1.79" color="black" visible="false"></a-text>
+      <!-- down -->
+      <a-box class="move" id="downBtn" position="6.0 1.25 -1.8" scale="0.3 0.3 0.01" color="#FFFFFF" visible="false"></a-box>
+      <a-text class="move" id = "downText" value="v" position="5.9 1.25 -1.79" color="black" visible="false"></a-text>
+      <!-- up -->
+      <a-box class="move" id="upBtn" position="6.4 1.25 -1.8" scale="0.3 0.3 0.01" color="#FFFFFF" visible="false"></a-box>
+      <a-text class="move" id = "upText" value="^" position="6.3 1.25 -1.79" color="black" visible="false"></a-text>
+      <!-- right -->
+      <a-box class="move" id="rightBtn" position="6.8 1.25 -1.8" scale="0.3 0.3 0.01" color="#FFFFFF" visible="false"></a-box>
+      <a-text class="move" id="rightText" value=">" position="6.7 1.25 -1.79" color="black" visible="false"></a-text>
+
       
       <a-plane position="0 0 -1" rotation="-90 0 0" width="100" height="100" color="#2D572C" shadow></a-plane>
     </a-scene>

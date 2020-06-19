@@ -25,9 +25,10 @@ A montagem de uma peça genérica (4 cubos) através de um painel de botões.
 * Botão para começar
 
 ## 2ª Quinzena de maio
-* RA
-* Função de movimento
+* Botões para movimentação da peça
+* Funções de movimento
 
 TODO
 * Print 
+* RA
 
