@@ -1,8 +1,9 @@
-cont = 1;
+var cont = 1;
 const horizontal = 0.2;
 const vertical = 0.2;
 var elName  = "#peça"
 var el = document.querySelector(elName + cont);
+var audio = new Audio("http://soundbible.com/grab.php?id=2156&type=mp3");
 
 document.querySelector("#startBtn").addEventListener("click", function(){start()});
 document.querySelector("#startText").addEventListener("click", function(){start()});
@@ -38,13 +39,16 @@ function isInPlace(position){
     }
   }
   if(fitted){
+    
+    audio.play();
     // incrementa cont para pegar a próxima peça
     cont++;
     el = document.querySelector(elName + cont);
     // exibe a próxima peça
-    el.object3D.visible = true;
+    if(cont<=4)
+      el.object3D.visible = true;
+    }
   }
-}
 
 function move(el,movement) {
   let position = el.getAttribute("position");
@@ -79,3 +83,4 @@ document.querySelector("#upBtn").addEventListener("click", function(){moveUp(el)
 document.querySelector("#upText").addEventListener("click", function(){moveUp(el)});
 document.querySelector("#downBtn").addEventListener("click", function(){moveDown(el)});
 document.querySelector("#downText").addEventListener("click", function(){moveDown(el)});
+
