@@ -5,36 +5,233 @@
     <title>Hello, WebVR! • A-Frame</title>
     <meta name="description" content="Hello, WebVR! • A-Frame">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src="/index.js" defer></script> 
   </head>
   <body>
  
-    <a-scene  cursor="rayOrigin: mouse"  background="color: #7BC8A4">
-
+    <a-scene  cursor="rayOrigin: mouse">
+    <a-entity id="ambiente" position="6.5 0 0" 
+      environment="preset:  starry;  
+          fog: 0.610;
+          groundColor:  #1f502; 
+          grid: none;
+          dressing: trees;
+          dressingColor: #162c18;
+          ground: canyon;
+          active:  true; 
+          groundTexture:  walkernoise;         
+          groundColor: #021a00;
+          groundColor2: #032400;
+          lightPosition: -10.9 0 -4.4"
+          ></a-entity> 
+    
       <!--Hangar-->
       <a-gltf-model id ="hangar" src="https://raw.githubusercontent.com/KurtRodrigues/Project01/master/modelos%203D%20Porta%20avi%C3%A3o/Hangar.0.9.gltf" shadow="cast: false" position="-2 1 -2.5" rotation="0 0 0" scale="1 1 1"  visible="true"> </a-gltf-model>
       <!--Vigas do Hangar-->
       <a-gltf-model id ="viga" src="https://raw.githubusercontent.com/KurtRodrigues/Project01/master/modelos%203D%20Porta%20avi%C3%A3o/Estrutura-vigas.gltf" shadow="cast: false" position="-2 1 -2.5" rotation="0 0 0" scale="1 1 1"  visible="true"> </a-gltf-model>
+      <!--Piso-->
       <a-gltf-model id ="piso" src="https://raw.githubusercontent.com/KurtRodrigues/Project01/master/modelos%203D%20Porta%20avi%C3%A3o/hangar-PISO2.gltf" shadow="cast: false" position="-2 1 -2.5" rotation="0 0 0" scale="1 1 1"  visible="true"> </a-gltf-model>
+      <!--Tablados-->
       <a-gltf-model id ="tablado1" src="https://raw.githubusercontent.com/KurtRodrigues/Project01/master/modelos%203D%20Porta%20avi%C3%A3o/tablado3-11.gltf" shadow="cast: false" position="0 1 -2.5" rotation="0 0 0" scale="1 0.5 0.5"  visible="true"> </a-gltf-model>
-      
-      <!-- peças -->
-      <a-box id = "caixaS 1"position="-0.2 2.05 -2.5" scale="0.5 0.5 0.3" color="#FF0000" ></a-box>
-      <a-box id = "caixaS 2"position="0.3 2.05 -2.5" scale="0.5 0.5 0.3" color="#00FF00" ></a-box>
-      <a-box id = "caixaS 3"position="0.3 1.55 -2.5"scale="0.5 0.5 0.3" color="#0000FF" ></a-box>
-      <a-box id = "caixaS 4"position="-0.2 1.55 -2.5" scale="0.5 0.5 0.3" color="#FFFF00" ></a-box>
-      
       <a-gltf-model id ="tablado2" src="https://raw.githubusercontent.com/KurtRodrigues/Project01/master/modelos%203D%20Porta%20avi%C3%A3o/tablado3-11.gltf" shadow="cast: false" position="6 1 -2.5" rotation="0 0 0" scale="1 1 0.5"  visible="true"> </a-gltf-model>
+
+      <!-- ILUMINAÇÃO  =============================================================================================== --> 
+<!-- Geral -->
+ 
+ <a-entity id="light1" 
+           light="type: ambient; 
+                  intensity: .370;" 
+           visible="True"></a-entity>
+    
+ <a-entity id="light2" 
+           light="castShadow: true; 
+                  color: #9e9e9e; 
+                  groundColor: #ffffff; 
+                  intensity: 0.1; 
+                  shadowCameraNear: 0.38;
+                  shadowCameraBottom: -0.49; 
+                  shadowRadius: 1.83; 
+                  shadowCameraFar: 9.550" 
+           scale="0.26 0.18 0.18"
+           position="-2.92 -0.0025 -2.5"  
+           rotation="0 -9.83 0"></a-entity>
+     
+<!-- HANGAR -->
+<!-- lamp 1 --------------------- -->
+    <a-sphere segments="50" 
+              opacity="0.2" 
+              color= "#f9ffda" 
+              position = "-2.7 4.3 -2.5" 
+              rotation="-90 0 0" 
+              scale="1 1 1" 
+              visible="true" ></a-sphere> 
+    <!-- criando meus halos de luz para simular a lampada -->
+    
+    <a-sphere  opacity="0.1" 
+              color="white" 
+              position = "-2.7 4.3 -2.5" 
+              rotation="-90 0 0" 
+              scale="1.8 1.8 1.8" 
+              visible="true" ></a-sphere> 
+    <!-- criando meus halos de luz para simular a lampada -->
+    <!-- spot lampada 1 --> 
+    <!-- controle do 'facho' de luz saindo da lampada --> 
+    
+    <a-sphere  id="lampada1" 
+              color="white" 
+              position = "-2.7 4.3 -2.5" 
+              rotation="-90 0 0" 
+              scale="0.1 0.1 0.1" 
+              visible="true" 
+              light="type: spot; 
+                     color: #FFF; 
+                     intensity: 0.54;
+                     angle:30; 
+                     penumbra:61.0;"> </a-sphere>
+    
+    <!-- "acender" lampada 1 --> 
+    <!-- usando um spot para simular a lampada acesa -->
+   
+    <a-entity id="lampada1-0" 
+              light="type: spot; 
+                     intensity: 100; 
+                     color: white; 
+                     distance:0.5" 
+              position="-2.8 4 -2.5 "
+              rotation="90 0 0"></a-entity>
+ 
+    <!-- lamp 2 --------------------- -->
+    
+    <a-sphere segments="50" 
+              color="#f9ffda" 
+              opacity="0.2" 
+              position = "0.1 4.3 -2.5" 
+              rotation="-90 0 0" 
+              scale="1 1 1" 
+              visible="true"> </a-sphere>
+    
+    <a-sphere color="white" 
+              opacity="0.1" 
+              position = "0.1 4.3 -2.5" 
+              rotation="-90 0 0" 
+              scale="1.8 1.8 1.8" 
+              visible="true"> </a-sphere>
+    
+    <!-- spot lampada 2 -->
+    
+    <a-sphere color="white" 
+              position = "0.1 4.3 -2.5" 
+              rotation="-90 0 0" 
+              scale="0.1 0.1 0.1" 
+              visible="true"
+              light="type: spot; 
+                     color: #FFF; 
+                     intensity: 0.54; 
+                     angle:30;
+                     penumbra:61.0;"> </a-sphere>
+    
+    <!-- "acender" lampada 2 -->
+    <a-entity light="type: spot; 
+                     intensity: 100; 
+                     color: white; 
+                     distance:0.5" 
+              position="0 4 -2.5 " 
+              rotation="90 0 0"></a-entity>
+   
+    <!-- lamp 4 --------------------------------------------------------- -->
+    <a-sphere segments="50" 
+              color="#f9ffda" 
+              opacity="0.2"
+              position = "6.5 4.3 -2.5" 
+              rotation="-90 0 0" 
+              scale="1 1 1" 
+              visible="true"> </a-sphere>
+    
+    <a-sphere color="white" 
+              opacity="0.1" 
+              position = "6.5 4.3 -2.5" 
+              rotation="-90 0 0" 
+              scale="1.8 1.8 1.8" 
+              visible="true"> </a-sphere>
+    
+    <!-- spot lampada 4 -->
+    <a-sphere color="white" 
+              position = "6.5 4.3 -2.5"
+              rotation="-90 0 0"
+              scale="0.1 0.1 0.1"
+              visible="true"
+              light="type: spot; 
+                     color: #FFF; 
+                     intensity: 0.54; 
+                     angle:30;
+                     penumbra:61.0"> </a-sphere>
+    
+     <!-- "acender" lampada 4 -->
+     <a-entity light="type: spot; 
+                      intensity: 100; 
+                      color: white; 
+                      distance: 0.5" 
+               position="6.5 4 -2.5 " 
+               rotation="90 0 0"></a-entity>
+
+    <!-- lamp 5--------------------------------------------------------- -->
+    
+    <a-sphere segments="50"              
+              color="#f9ffda" 
+              opacity="0.2" 
+              position = "9.7 4.3 -2.5"
+              rotation="-90 0 0"
+              scale="1 1 1" 
+              visible="true"> </a-sphere>
+    
+    <a-sphere color="white" 
+              opacity="0.1" 
+              position = "9.7 4.3 -2.5" 
+              rotation="-90 0 0"
+              scale="1.8 1.8 1.8"
+              visible="true"> </a-sphere>
+    
+    <!-- spot lampada 5 -->
+    <a-sphere color="white" 
+              position = "9.7 4.3 -2.5" 
+              rotation="-90 0 0" 
+              scale="0.1 0.1 0.1" 
+              visible="true"
+              light="type: spot; 
+                     color: #FFF;
+                     intensity: 0.54; 
+                     angle:30;
+                     penumbra:61.0;"> </a-sphere>
+    
+    <!-- "acender" lampada 5 -->
+    <a-entity light="type: spot;
+                     intensity: 100; 
+                     color: white; 
+                     distance:0.5" 
+              position="9.7 4 -2.5 " 
+              rotation="90 0 0"></a-entity>
+    <!-- Luminarias -->   
+    <a-gltf-model id ="Lampada1" src="https://raw.githubusercontent.com/KurtRodrigues/Project01/master/modelos%203D%20Porta%20avi%C3%A3o/lampara1.gltf" position = "0 0 -5" rotation="0 0 0" scale="1 1 1" visible="true" > </a-gltf-model>
+    <a-gltf-model id ="Lampada2" src="https://raw.githubusercontent.com/KurtRodrigues/Project01/master/modelos%203D%20Porta%20avi%C3%A3o/lampara2.gltf" position = "0 0 -5" rotation="0 0 0" scale="1 1 1" visible="true" > </a-gltf-model>
+    <a-gltf-model id ="Lampada4" src="https://raw.githubusercontent.com/KurtRodrigues/Project01/master/modelos%203D%20Porta%20avi%C3%A3o/lampara4.gltf" position = "0 0 -5" rotation="0 0 0" scale="1 1 1" visible="true"> </a-gltf-model>
+    <a-gltf-model id ="Lampada5" src="https://raw.githubusercontent.com/KurtRodrigues/Project01/master/modelos%203D%20Porta%20avi%C3%A3o/lampara5.gltf" position = "0 0 -5" rotation="0 0 0" scale="1 1 1" visible="true"> </a-gltf-model>
+      
       <!-- peças -->
+      <a-box id = "caixaS 1" position="-0.2 2.05 -2.5" scale="0.5 0.5 0.3" color="#FF0000" ></a-box>
+      <a-box id = "caixaS 2" position="0.3 2.05 -2.5" scale="0.5 0.5 0.3" color="#00FF00" ></a-box>
+      <a-box id = "caixaS 3" position="0.3 1.55 -2.5" scale="0.5 0.5 0.3" color="#0000FF" ></a-box>
+      <a-box id = "caixaS 4" position="-0.2 1.55 -2.5" scale="0.5 0.5 0.3" color="#FFFF00" ></a-box>
       <a-box id = "caixaT-1" position="5.8 2.30 -2.5" scale="0.5 0.5 0.3" color="#FF0000" opacity="0.5" ></a-box>
-      <a-box id = "caixaT-2"position="6.3 2.30 -2.5" scale="0.5 0.5 0.3" color="#00FF00" opacity="0.5"></a-box>
-      <a-box id = "caixaT-3"position="6.3 1.8 -2.5"scale="0.5 0.5 0.3" color="#0000FF" opacity="0.5"></a-box>
-      <a-box id = "caixaT-4"position="5.8 1.8 -2.5" scale="0.5 0.5 0.3" color="#FFFF00" opacity="0.5"></a-box>
+      <a-box id = "caixaT-2" position="6.3 2.30 -2.5" scale="0.5 0.5 0.3" color="#00FF00" opacity="0.5"></a-box>
+      <a-box id = "caixaT-3" position="6.3 1.8 -2.5" scale="0.5 0.5 0.3" color="#0000FF" opacity="0.5"></a-box>
+      <a-box id = "caixaT-4" position="5.8 1.8 -2.5" scale="0.5 0.5 0.3" color="#FFFF00" opacity="0.5"></a-box>
       
       <!-- peças -->
       <a-box id = "peça1" position="7.4 1.7 -2.5" scale="0.5 0.5 0.3" color="#FF0000" visible="false"></a-box>
-      <a-box id = "peça2"position="7.3 1.7 -2.5" scale="0.5 0.5 0.3" color="#00FF00" visible="false"></a-box>
-      <a-box id = "peça3"position="7.3 1.6 -2.5"scale="0.5 0.5 0.3" color="#0000FF" visible="false"></a-box>
-      <a-box id = "peça4"position="7.4 1.6 -2.5" scale="0.5 0.5 0.3" color="#FFFF00" visible="false"></a-box>
+      <a-box id = "peça2" position="7.3 1.7 -2.5" scale="0.5 0.5 0.3" color="#00FF00" visible="false"></a-box>
+      <a-box id = "peça3" position="7.3 1.6 -2.5" scale="0.5 0.5 0.3" color="#0000FF" visible="false"></a-box>
+      <a-box id = "peça4" position="7.4 1.6 -2.5" scale="0.5 0.5 0.3" color="#FFFF00" visible="false"></a-box>
       
       <!--botão-->
       <a-box id="startBtn" position="6.0 1.25 -1.8" scale="1.0 0.3 0.01" color="#FFFFFF"></a-box>
@@ -59,3 +256,4 @@
     <script src="index.js"></script>
   </body>
 </html>
+
