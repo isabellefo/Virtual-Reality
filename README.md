@@ -32,3 +32,7 @@ A montagem de uma peça genérica (4 cubos) através de um painel de botões.
 * Verificação da posição da peça
 * Caso a posição esteja correta, a próxima peça aparece na tela
 
+## 1ª Quinzena de junho
+* Quando a peça entra no lugar toca um som de feed back
+
+
