@@ -1,4 +1,4 @@
-# IHC -3° semestre B de ADS
+# IHC - 3° período B de ADS
 Professor Giuliano Bertoti
 
 * [Link para o CodePen](https://codepen.io/isabellefo/pen/pojOwQK?editors=1010)
@@ -7,7 +7,7 @@ Professor Giuliano Bertoti
 ## Objetivo geral
 Fazer a montagem de uma peça usando as ferramentas de AR.js em realidade virtual.
 
-## Objetvo específico
+## Objetivo específico
 A montagem de uma peça genérica (4 cubos) através de um painel de botões.
 
 
