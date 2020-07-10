@@ -29,11 +29,11 @@ A montagem de uma peça genérica (4 cubos) através de um painel de botões.
 * Botões para movimentação da peça
 * Funções de movimento
 
-## 3ª Quinzena de maio
+## 1ª Quinzena de junho
 * Verificação da posição da peça
 * Caso a posição esteja correta, a próxima peça aparece na tela
 
-## 1ª Quinzena de junho
+## 2ª Quinzena de junho
 * Quando a peça entra no lugar toca um som de feed back
 
 
