@@ -21,7 +21,7 @@ function start() {
   if(document.getElementById("congrats").object3D.visible){
     toggleElement("congrats");
   }
-  
+  // esconde ou mostra os elementos
   el.object3D.visible = true;
   toggleElement("startBtn");
   toggleElement("startText");
@@ -34,7 +34,7 @@ function isInPlace(position){
   // flag para saber se está no lugar
   let fitted = true;
   for( let[cord, value] of Object.entries(position)){
-    // tranforma a posição em um inteiro
+    // transforma a posição em um inteiro
     let c1 = Math.floor(value / 0.01);
     let c2 = Math.floor(rightPlace[cord] / 0.01);
     console.log(`${cord} ${c1} ${c2} ${Math.abs(c1-c2)}`);
@@ -49,18 +49,18 @@ function isInPlace(position){
     audio.play();
     // incrementa cont para pegar a próxima peça
     cont++;
-    // exibe a próxima peça
+    // caso todas as peças forem encaixadas
     if(cont > 4){
       cont = 1;
       // esconde os botões de movimento
       let btns = document.getElementsByClassName("move");
       for(let item of btns){
-        //Não sei se tá entrando aqui não
         toggleElement(item.id);
       }
       // mostra o botão de start
       toggleElement("startBtn");
       toggleElement("startText");
+      // move e esconde as caixas
       for(let c = 1; c <= 4; c++){
         let p1 = document.getElementById("caixaT-"+ c).getAttribute("position");
         let ent = document.getElementById("peça"+c)
@@ -70,11 +70,12 @@ function isInPlace(position){
         ent.setAttribute("position", p2);
         ent.object3D.visible = false;
       }
-       //mostra o aviso de parabens
-      toggleElement("congrats")
+      //mostra o aviso de parabens
+      toggleElement("congrats");
       el = document.querySelector(elName + cont);
       return;
     }
+    // exibe a próxima peça
     el = document.querySelector(elName + cont);
     el.object3D.visible = true; 
 
@@ -91,14 +92,15 @@ function toggleElement(id){
 }
 
 function move(el,movement) {
+  // soma movement em posição
   let position = el.getAttribute("position");
   for(let[ cord , value] of Object.entries(position)){
     position[cord] = value + movement[cord];
   }
-  
   el.setAttribute("position", position);
   isInPlace(position);
 }
+
 function moveUp(item){
   move(item, {x:0.0, y:vertical, z:0.0});
 }
