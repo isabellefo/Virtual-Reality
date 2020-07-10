@@ -7,6 +7,7 @@
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
     <script src="/index.js" defer></script> 
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
  
@@ -35,13 +36,14 @@
       <!--Tablados-->
       <a-gltf-model id ="tablado1" src="https://raw.githubusercontent.com/KurtRodrigues/Project01/master/modelos%203D%20Porta%20avi%C3%A3o/tablado3-11.gltf" shadow="cast: false" position="0 1 -2.5" rotation="0 0 0" scale="1 0.5 0.5"  visible="true"> </a-gltf-model>
       <a-gltf-model id ="tablado2" src="https://raw.githubusercontent.com/KurtRodrigues/Project01/master/modelos%203D%20Porta%20avi%C3%A3o/tablado3-11.gltf" shadow="cast: false" position="6 1 -2.5" rotation="0 0 0" scale="1 1 0.5"  visible="true"> </a-gltf-model>
-
-      <!-- ILUMINAÇÃO  =============================================================================================== --> 
+      <!--Moldura-
+      <a-gltf-model id ="moldura" src="https://raw.githubusercontent.com/KurtRodrigues/Project01/master/modelos%203D%20Porta%20avi%C3%A3o/moldura-1.gltf" visible="true" position = "0 0 0" scale="0.5 0.5 0.5" shadow="cast: false"> </a-gltf-model>
+ -->     <!-- ILUMINAÇÃO  =============================================================================================== --> 
 <!-- Geral -->
  
  <a-entity id="light1" 
            light="type: ambient; 
-                  intensity: .370;" 
+                  intensity: .550;" 
            visible="True"></a-entity>
     
  <a-entity id="light2" 
@@ -236,24 +238,39 @@
       <!--botão-->
       <a-box id="startBtn" position="6.0 1.25 -1.8" scale="1.0 0.3 0.01" color="#FFFFFF"></a-box>
       <a-text id = "startText" value="START" position="5.64 1.25 -1.79" color="black" ></a-text>
+      <a-box id="restartBtn" position="6.0 1.25 -1.8" scale="1.0 0.3 0.01" color="#FFFFFF" visible="false"></a-box>
+      <a-text id = "restartText" value="RESTART" position="5.64 1.25 -1.79" color="black" visible="false"></a-text>
       
       <!-- left -->
-      <a-box class="move" id="leftBtn" position="5.6 1.25 -1.8" scale="0.3 0.3 0.01" color="#FFFFFF" visible="false"></a-box>
-      <a-text class="move" id = "leftText" value="<" position="5.5 1.25 -1.79" color="black" visible="false"></a-text>
+      <a-box class="move" id="leftBtn" position="5.6 -1.25 -1.8" scale="0.3 0.3 0.01" color="#FFFFFF" visible="false"></a-box>
+      <a-text class="move" id = "leftText" value="<" position="5.5 -1.25 -1.79" color="black" visible="false"></a-text>
+      
       <!-- down -->
-      <a-box class="move" id="downBtn" position="6.0 1.25 -1.8" scale="0.3 0.3 0.01" color="#FFFFFF" visible="false"></a-box>
-      <a-text class="move" id = "downText" value="v" position="5.9 1.25 -1.79" color="black" visible="false"></a-text>
+      <a-box class="move" id="downBtn" position="6.0 -1.25 -1.8" scale="0.3 0.3 0.01" color="#FFFFFF" visible="false"></a-box>
+      <a-text class="move" id = "downText" value="v" position="5.9 -1.25 -1.79" color="black" visible="false"></a-text>
       <!-- up -->
-      <a-box class="move" id="upBtn" position="6.4 1.25 -1.8" scale="0.3 0.3 0.01" color="#FFFFFF" visible="false"></a-box>
-      <a-text class="move" id = "upText" value="^" position="6.3 1.25 -1.79" color="black" visible="false"></a-text>
+      <a-box class="move" id="upBtn" position="6.4 -1.25 -1.8" scale="0.3 0.3 0.01" color="#FFFFFF" visible="false"></a-box>
+      <a-text class="move" id = "upText" value="^" position="6.3 -1.25 -1.79" color="black" visible="false"></a-text>
       <!-- right -->
-      <a-box class="move" id="rightBtn" position="6.8 1.25 -1.8" scale="0.3 0.3 0.01" color="#FFFFFF" visible="false"></a-box>
-      <a-text class="move" id="rightText" value=">" position="6.7 1.25 -1.79" color="black" visible="false"></a-text>
-
+      <a-box class="move" id="rightBtn" position="6.8 -1.25 -1.8" scale="0.3 0.3 0.01" color="#FFFFFF" visible="false"></a-box>
+      <a-text class="move" id="rightText" value=">" position="6.7 -1.25 -1.79" color="black" visible="false"></a-text>
+      
+      
+      <img id="parabens" 
+         crossorigin="" 
+         src="https://cdn.glitch.com/8641002a-001f-447e-8598-aa866e9de21c%2Fimg_parabens.jpg?v=1594300027968" hidden> 
+      
+      <a-image id="congrats" 
+             look-at="#player2" 
+             src="#parabens" 
+             scale = "1 1 1"  
+             position="6.2 -2 -1.6" 
+             visible="false"
+             width="2"></a-image>
       
       <a-plane position="0 0 -1" rotation="-90 0 0" width="100" height="100" color="#2D572C" shadow></a-plane>
     </a-scene>
     <script src="index.js"></script>
+      
   </body>
 </html>
-
