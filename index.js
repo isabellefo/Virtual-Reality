@@ -9,6 +9,7 @@ document.querySelector("#startBtn").addEventListener("click", function(){start()
 document.querySelector("#startText").addEventListener("click", function(){start()});
 document.querySelector("#congrats").addEventListener("click", function(){toggleElement("congrats")});
 
+// Exibe os botões de direção e a primeira peça que será movida 
 function start() {
   console.log("start");
   
@@ -28,6 +29,9 @@ function start() {
   
 }
 
+// Verifica se a peça atual está posicionada nas mesmas coordenadas que a peça transparente  
+// Args:
+//     position::object = dicionário contendo as coordenadas(x, y e z) da peça
 function isInPlace(position){
   // posição da peça transparente
   let rightPlace = document.getElementById("caixaT-"+ cont).getAttribute("position");
@@ -82,6 +86,9 @@ function isInPlace(position){
   }
 }
 
+// Alterna a visibilidade de um elemento. Se estiver visível torna invisível vice-versa
+// Args:
+//     id::str = identificador do elemento
 function toggleElement(id){
   let ent = document.getElementById(id);
   let p = ent.getAttribute("position");
@@ -90,6 +97,11 @@ function toggleElement(id){
   ent.object3D.visible = !ent.object3D.visible;
 }
 
+// Adiciona à coordenada da peça, os valores contidos no dicionário "movement", movendo a peça para
+// uma posição desejada.
+// Args:
+//     el::object = elemento/peça que será movida
+//     movement::object = dicionário que contém os valores a serem adicionados nas coordenadas da peça
 function move(el,movement) {
   let position = el.getAttribute("position");
   for(let[ cord , value] of Object.entries(position)){
@@ -99,18 +111,31 @@ function move(el,movement) {
   el.setAttribute("position", position);
   isInPlace(position);
 }
+
+// Utiliza da função move para mover a peça para cima
+// Args:
+//     item::object = elemento/peça que será movida
 function moveUp(item){
   move(item, {x:0.0, y:vertical, z:0.0});
 }
 
+// Utiliza da função move para mover a peça para baixo
+// Args:
+//     item::object = elemento/peça que será movida
 function moveDown(item){
   move(item, {x:0.0, y:-vertical, z:0.0});
 }
 
+// Utiliza da função move para mover a peça para esquerda
+// Args:
+//     item::object = elemento/peça que será movida
 function moveLeft(item){
   move(item, {x:-horizontal, y:0.0, z:0.0});
 }
 
+// Utiliza da função move para mover a peça para direita
+// Args:
+//     item::object = elemento/peça que será movida
 function moveRight(item){
   move(item, {x:horizontal, y:0.0, z:0.0});
 }
