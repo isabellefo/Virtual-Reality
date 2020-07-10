@@ -1,7 +1,7 @@
 # IHC -3° semestre B de ADS
 Professor Giuliano Bertoti
 
-[Link para o CodePen](https://codepen.io/isabellefo/pen/pojOwQK?editors=1010)
+[Link para o CodePen](https://codepen.io/isabellefo/pen/pojOwQK?editors=1010)\n
 [Link para o Glitch](https://vr-latecoere.glitch.me)
 
 ## Objetivo geral
