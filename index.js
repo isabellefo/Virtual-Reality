@@ -7,19 +7,25 @@ var audio = new Audio("http://soundbible.com/grab.php?id=2156&type=mp3");
 
 document.querySelector("#startBtn").addEventListener("click", function(){start()});
 document.querySelector("#startText").addEventListener("click", function(){start()});
+document.querySelector("#congrats").addEventListener("click", function(){toggleElement("congrats")});
 
 function start() {
+  console.log("start");
+  
   let btns = document.getElementsByClassName("move");
   for(let item of btns){
-    item.object3D.visible = true;
+    console.log(item.id);
+    toggleElement(item.id);
+  }
+  // parabéns
+  if(document.getElementById("congrats").object3D.visible){
+    toggleElement("congrats");
   }
   
-  var btn1 = document.querySelector("#startBtn");
-  var text = document.querySelector("#startText");
-
   el.object3D.visible = true;
-  btn1.object3D.visible = false;
-  text.object3D.visible = false;
+  toggleElement("startBtn");
+  toggleElement("startText");
+  
 }
 
 function isInPlace(position){
@@ -38,17 +44,51 @@ function isInPlace(position){
       break;
     }
   }
+  
   if(fitted){
-    
     audio.play();
     // incrementa cont para pegar a próxima peça
     cont++;
-    el = document.querySelector(elName + cont);
     // exibe a próxima peça
-    if(cont<=4)
-      el.object3D.visible = true;
+    if(cont > 4){
+      cont = 1;
+      // esconde os botões de movimento
+      let btns = document.getElementsByClassName("move");
+      for(let item of btns){
+        //Não sei se tá entrando aqui não
+        toggleElement(item.id);
+      }
+      // mostra o botão de start
+      toggleElement("startBtn");
+      toggleElement("startText");
+      for(let c = 1; c <= 4; c++){
+        let p1 = document.getElementById("caixaT-"+ c).getAttribute("position");
+        let ent = document.getElementById("peça"+c)
+        let p2 = ent.getAttribute("position");
+        p2["x"] = p1["x"] + 1.2;
+        p2["y"] = p1["y"] + 0.4;
+        ent.setAttribute("position", p2);
+        ent.object3D.visible = false;
+      }
+       //mostra o aviso de parabens
+      toggleElement("congrats")
+      el = document.querySelector(elName + cont);
+      return;
     }
+    el = document.querySelector(elName + cont);
+    el.object3D.visible = true; 
+
+    
   }
+}
+
+function toggleElement(id){
+  let ent = document.getElementById(id);
+  let p = ent.getAttribute("position");
+  p["y"] = -p["y"];
+  ent.setAttribute("position",p);
+  ent.object3D.visible = !ent.object3D.visible;
+}
 
 function move(el,movement) {
   let position = el.getAttribute("position");
@@ -83,4 +123,3 @@ document.querySelector("#upBtn").addEventListener("click", function(){moveUp(el)
 document.querySelector("#upText").addEventListener("click", function(){moveUp(el)});
 document.querySelector("#downBtn").addEventListener("click", function(){moveDown(el)});
 document.querySelector("#downText").addEventListener("click", function(){moveDown(el)});
-
