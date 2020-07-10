@@ -1,7 +1,8 @@
 # IHC -3° semestre B de ADS
 Professor Giuliano Bertoti
 
-[link para o codepen](https://codepen.io/isabellefo/pen/pojOwQK?editors=1010)
+* [Link para o CodePen](https://codepen.io/isabellefo/pen/pojOwQK?editors=1010)
+* [Link para o Glitch](https://vr-latecoere.glitch.me)
 
 ## Objetivo geral
 Fazer a montagem de uma peça usando as ferramentas de AR.js em realidade virtual.
